@@ -35,3 +35,5 @@ getting the API token, and then setting up a client in the ESP32 firmware. Not o
 but users are also able to send it commands such as mute, unmute, and help to easily control it without the need for reprogramming or local network access.
 
 
+### https://www.youtube.com/watch?v=CSV9qrF8wSk&t=130s&ab_channel=element14presents
+
