@@ -9,3 +9,21 @@ Unlike the publicly accessible Wi-Fi network available in airports, cafes, and s
 However, as element14 Presents host Mark Donners points out, providing the credentials to visitors can create a risk, 
 especially if that password is further shared. In order to help himself more quickly identify unknown devices,
 Donners set out to create an inexpensive network monitoring tool that could alert him whenever something connects.
+
+## A short bill of materials
+Compared to other Wi-Fi network monitors, or "pineapples" as they're called in the infosec profession, 
+this DIY version would be quite barebones in both software and hardware capabilities.
+In this iteration, Donners' design is comprised of a single ESP32 due to its onboard Wi-Fi chip/antenna, and a USB power supply.
+
+## Configuring the device
+Before any scanning can commence, the device first has to know where to connect, 
+and that's done by initially pressing a button connected to a digital IO pin which causes the ESP32 to create an access point.
+Once connected, the configuration webpage presents a form for entering the target access point's SSID, password, and timezone. 
+Furthermore, the user can add their Telegram API token and chat ID to gain access to real-time alerts.
+
+## UDP packets
+The user datagram protocol, or UDP, is an extremely simple communication protocol where messages can be sent without the need for prior setup or extra error correction. 
+Because of this, and in combination with IPv4, one can easily extract the sender's IP address and the ports being accessed.
+But this only provides limited information and can be sent thousands of times a day from a single device, therefore,
+Donners chose to only select DHCP packets since they are sent when a device joins the network or needs to renew its IP address.
+They contain the client's MAC address, IP address, and optionally the hostname, amongst many other options.
