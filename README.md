@@ -27,3 +27,11 @@ Because of this, and in combination with IPv4, one can easily extract the sender
 But this only provides limited information and can be sent thousands of times a day from a single device, therefore,
 Donners chose to only select DHCP packets since they are sent when a device joins the network or needs to renew its IP address.
 They contain the client's MAC address, IP address, and optionally the hostname, amongst many other options.
+
+## Telegram integration
+With the Wi-Fi monitor now able to collect and parse DHCP packets into useful information, 
+Donners wanted it to send alerts via Telegram whenever a device joins the network. This was accomplished by setting up a Telegram bot, 
+getting the API token, and then setting up a client in the ESP32 firmware. Not only can the bot send information about new device through the chat, 
+but users are also able to send it commands such as mute, unmute, and help to easily control it without the need for reprogramming or local network access.
+
+
